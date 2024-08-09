@@ -1,0 +1,22 @@
+<div class="container mx-auto py-8" *ngIf="post">
+    <h1 class="text-3xl font-bold mb-4">{{ post.title }}</h1>
+    <p class="text-gray-600 mb-6">{{ post.content }}</p>
+    <div class="flex space-x-4 mb-4">
+      <button (click)="upvote()" class="text-green-500">▲ Upvote ({{ post.upvotes }})</button>
+      <button (click)="downvote()" class="text-red-500">▼ Downvote ({{ post.downvotes }})</button>
+    </div>
+    <div class="bg-gray-100 p-4 rounded-lg shadow-md">
+      <h3 class="text-xl font-bold mb-2">Comments</h3>
+      <ul>
+        <li *ngFor="let comment of post.comments" class="mb-4">
+          <p>{{ comment.content }}</p>
+          <p class="text-gray-400 text-sm">- {{ comment.author }} on {{ comment.createdAt | date:'medium' }}</p>
+        </li>
+      </ul>
+      <div class="mt-4">
+        <textarea [(ngModel)]="newComment" rows="3" class="w-full p-2 border rounded-md" placeholder="Add a comment"></textarea>
+        <button (click)="addComment()" class="bg-blue-600 text-white px-4 py-2 rounded mt-2">Submit</button>
+      </div>
+    </div>
+  </div>
+  

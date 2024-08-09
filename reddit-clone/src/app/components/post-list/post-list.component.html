@@ -1,0 +1,15 @@
+<div class="container mx-auto py-8">
+    <h1 class="text-3xl font-bold mb-6">Posts</h1>
+    <div *ngFor="let post of posts" class="bg-white p-4 rounded-lg shadow-md mb-4">
+      <div class="flex justify-between items-center">
+        <a [routerLink]="['/post', post.id]" class="text-xl font-bold">{{ post.title }}</a>
+        <div class="flex space-x-2">
+          <button (click)="upvote(post.id)" class="text-green-500">▲ {{ post.upvotes }}</button>
+          <button (click)="downvote(post.id)" class="text-red-500">▼ {{ post.downvotes }}</button>
+        </div>
+      </div>
+      <p class="text-gray-600 mt-2">{{ post.content }}</p>
+      <p class="text-gray-400 text-sm">Posted by {{ post.author }} on {{ post.createdAt | date:'medium' }}</p>
+    </div>
+  </div>
+  

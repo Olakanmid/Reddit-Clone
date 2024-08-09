@@ -1,0 +1,20 @@
+<div class="min-h-screen flex items-center justify-center bg-gray-100">
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+      <h2 class="text-2xl font-bold mb-6 text-center">{{ isLogin ? 'Login' : 'Sign Up' }}</h2>
+      <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+        <div class="mb-4">
+          <label class="block text-gray-700 mb-2" for="username">Username</label>
+          <input formControlName="username" type="text" id="username" class="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="Username" />
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 mb-2" for="password">Password</label>
+          <input formControlName="password" type="password" id="password" class="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="Password" />
+        </div>
+        <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded-md hover:bg-blue-700 transition duration-300">{{ isLogin ? 'Login' : 'Sign Up' }}</button>
+        <div class="mt-4 text-center">
+          <a href="#" class="text-blue-600 hover:underline" (click)="toggleAuthMode()">{{ isLogin ? 'Don\'t have an account? Sign up here' : 'Already have an account? Login here' }}</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  
